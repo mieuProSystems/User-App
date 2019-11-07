@@ -16,12 +16,13 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import PlayVideo from './Screen/playVideo';
 import ChannelVideos from './Screen/channelVideos';
-import Home from './Screen/homePage';
+import tabNavigationContainer from './Screen/homePage';
 import Dashboard from './Screen/dashboard';
 import Login from './Screen/login';
 import RegisterEmail from './Screen/registerEmail';
 import RegisterUsername from './Screen/registerUsername';
 import RegisterPassword from './Screen/registerPassword';
+  
 
 import ForgetPassword from './Screen/forgetPassword';
 
@@ -63,7 +64,7 @@ const AppNavigator = createStackNavigator(
    
       }
   },
-  Home:{ screen:Home
+  Home:{ screen:tabNavigationContainer
   },
 
   ChannelVideos:{screen:ChannelVideos
