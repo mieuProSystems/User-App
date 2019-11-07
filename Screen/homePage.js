@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import {ScrollView, View, Text, BackHandler, Alert} from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
+
+import SettingsScreen from './settingsScreen';
+import AccountScreen from './AccountScreen';
 
 import IPADDRESS from '../Components/serverip';
 
@@ -17,24 +23,13 @@ class Home extends Component {
     .then(async(resultData)=>{
       
       await this.setState({data:resultData}) ;
+      
     })
     BackHandler.addEventListener('hardwareBackPress', this.backPressed);
 
   }
-
-  static navigationOptions = {  
-    title: 'Welcome!',  
-    headerStyle: {  
-        backgroundColor: '#00a2ff',
-          },  
-    headerTitleStyle: {  
-        fontWeight: 'bold', 
-        fontSize:24,
-        color:'#000',
-        textAlign:'center' 
-      
-    },  
-}; 
+  
+  
 
 backPressed = () => {
 
@@ -87,4 +82,27 @@ componentWillUnmount() {
   }
 }
 
-export default Home;
+
+// const HomeStack = createStackNavigator({
+//   Home: HomeScreen,
+// });
+
+// const SettingsStack = createStackNavigator({
+//   Settings: SettingsScreen,
+// });
+// const AccountStack = createStackNavigator({
+//   Account: AccountScreen,
+// });
+
+
+
+
+const TabNavigator = createBottomTabNavigator({
+  Home: Home,
+  Account:AccountScreen,
+  Settings: SettingsScreen,
+});
+
+const tabNavigationContainer = createAppContainer(TabNavigator);
+
+export default tabNavigationContainer ;
