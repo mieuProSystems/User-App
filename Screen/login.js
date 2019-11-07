@@ -66,7 +66,7 @@ export default class Login extends Component {
                         this.props.navigation.dispatch(StackActions.reset({
                             index: 0,
                             key: null,
-                            actions: [NavigationActions.navigate({ routeName: 'Home' })],
+                            actions: [NavigationActions.navigate({ routeName: 'Home', params: { token: responsejson['token'] } })],
                         }));
                     }
 
