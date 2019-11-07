@@ -11,7 +11,7 @@ import { styles } from '../stylesheets/registerFormStyles';
 import Spinner from 'react-native-loading-spinner-overlay';
 import IpAddress from '../Components/serverip';
 
-import { Svg} from 'react-native-svg';
+//import { Svg} from 'react-native-svg';
 
 
 export default class RegisterEmail extends Component {
