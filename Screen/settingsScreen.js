@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {View, Text} from 'react-native';
+import { TouchableOpacity, TouchableHighlight } from 'react-native-gesture-handler';
 
 class SettingsScreen extends React.Component {
 
@@ -12,12 +13,45 @@ class SettingsScreen extends React.Component {
       return (
         <View style={{ }}>
           <View style={{flexDirection:'row'}}>
-          <View style={{borderRadius:15, width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:20}}>
-              <Text style={{fontSize:20, padding:20, textAlign:'center'}}>Send Feedback</Text>
+
+          <TouchableHighlight>
+            <View style={{borderRadius:15,width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:10}}>
+              <Text style={{fontSize:20, padding:20, textAlign:'center', marginTop:'auto', marginBottom:'auto'}}>Change Password</Text>
             </View>
-            <View style={{borderRadius:15,width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:20}}>
+            </TouchableHighlight>
+
+            <TouchableHighlight onPress={()=>{this.props.navigation.navigate('Home')}}>
+          <View style={{borderRadius:15, width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:10}}>
+              <Text style={{fontSize:20, padding:20, textAlign:'center'}}>Help & Feedback</Text>
+            </View>
+            </TouchableHighlight>
+        </View>
+          <View style={{flexDirection:'row'}}>
+            <TouchableHighlight>
+            <View style={{borderRadius:15,width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:10}}>
               <Text style={{fontSize:20, padding:20, textAlign:'center', marginTop:'auto', marginBottom:'auto'}}>Invite Friends</Text>
             </View>
+            </TouchableHighlight>
+
+            <TouchableHighlight>
+            <View style={{borderRadius:15,width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:10}}>
+              <Text style={{fontSize:20, padding:20, textAlign:'center', marginTop:'auto', marginBottom:'auto'}}>Rate This App</Text>
+            </View>
+            </TouchableHighlight>
+            </View>
+
+            <View style={{flexDirection:'row'}}>
+            <TouchableHighlight>
+            <View style={{borderRadius:15,width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:10}}>
+              <Text style={{fontSize:20, padding:20, textAlign:'center', marginTop:'auto', marginBottom:'auto'}}>About Us</Text>
+            </View>
+            </TouchableHighlight>
+
+            <TouchableHighlight>
+            <View style={{borderRadius:15,width:150,  borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid', margin:20, backgroundColor:'#00a2ff', elevation:10}}>
+              <Text style={{fontSize:20, padding:20, textAlign:'center', marginTop:'auto', marginBottom:'auto'}}>App Info</Text>
+            </View>
+            </TouchableHighlight>
             </View>
         </View>
       );
