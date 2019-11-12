@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {ScrollView, View, Text, BackHandler, Alert} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
+
 
 import SettingsScreen from './settingsScreen';
 import AccountScreen from './AccountScreen';
@@ -10,6 +10,10 @@ import AccountScreen from './AccountScreen';
 import IPADDRESS from '../Components/serverip';
 
 import ChannelList from '../Components/channelList';
+
+import Entypo from 'react-native-vector-icons/Entypo';
+
+
 
 class Home extends Component {
   constructor(props) {
@@ -74,9 +78,9 @@ componentWillUnmount() {
                           {imgView}
                           </View>
 
-                        
-  
+                     
                     </View>
+                   
                     
             </ScrollView> );
   }
@@ -95,12 +99,86 @@ componentWillUnmount() {
 // });
 
 
-
+ 
 
 const TabNavigator = createBottomTabNavigator({
-  Home: Home,
-  Account:AccountScreen,
-  Settings: SettingsScreen,
+  Home:{  
+    screen:Home,  
+    navigationOptions:{  
+      tabBarLabel:'Home',  
+      tabBarIcon:({focused,tintColor})=>(  
+        <Entypo name="home" size={30} color="#002aff" focused={focused} tintColor={{ tintColor }}/>
+      ),
+      tabBarOptions: {
+        labelStyle: {
+          fontSize: 14,
+          margin: 0,
+          padding: 5,
+        },
+        
+        style: {
+          height: 70
+        },
+        activeTintColor:'#002aff',
+        activeBackgroundColor:'#ddd'
+        
+      }  
+    
+
+    
+        
+    }
+  
+  }
+  ,
+  Account:{  
+    screen:AccountScreen,  
+    navigationOptions:{  
+      tabBarLabel:'My Profile',  
+      tabBarIcon:({focused,tintColor})=>(  
+         <Entypo name="user" size={30} focused={focused} color="#002aff" />
+      ),
+      tabBarOptions: {
+        labelStyle: {
+          fontSize: 14,
+          margin: 0,
+          padding: 5,
+        },
+        
+        style: {
+          height: 70
+        },
+        activeTintColor:'#002aff',
+        activeBackgroundColor:'#ddd'
+      }  
+    }  
+  },
+  Settings: {  
+    screen:SettingsScreen,  
+    navigationOptions:{  
+      tabBarLabel:'Settings',  
+      tabBarIcon:({focused,tintColor})=>(  
+         <Entypo name="tools" focused={focused} size={30} color="#002aff" />
+        
+      ),
+      tabBarOptions: {
+        labelStyle: {
+          fontSize: 14,
+          margin: 0,
+          padding: 5,
+        },
+        
+        style: {
+          height: 70
+        },
+        activeTintColor:'#002aff',
+        activeBackgroundColor:'#ddd'
+      } 
+    },
+    tabBarOptions: { 
+   showIcon: true 
+},  
+  },
 });
 
 const tabNavigationContainer = createAppContainer(TabNavigator);
