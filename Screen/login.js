@@ -33,6 +33,31 @@ export default class Login extends Component {
         }
     }
 
+// componentWillMount(){
+//     this.requestLocationPermission()
+// }
+//      requestLocationPermission=()=> 
+// {
+//   try {
+//     const granted = await PermissionsAndroid.request(
+//       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+//       {
+//         'title': 'Example App',
+//         'message': 'Example App access to your location '
+//       }
+//     )
+//     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+//       console.log("You can use the location")
+//       alert("You can use the location");
+//     } else {
+//       console.log("location permission denied")
+//       alert("Location permission denied");
+//     }
+//   } catch (err) {
+//     console.warn(err)
+//   }
+// }
+
     validateLogin =async()=>{
         console.log("clicked");
         if( (this.state.email.length === 0) || (this.state.password.length === 0) ){
