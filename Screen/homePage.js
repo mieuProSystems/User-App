@@ -107,7 +107,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions:{  
       tabBarLabel:'Home',  
       tabBarIcon:({focused,tintColor})=>(  
-        <Entypo name="home" size={30} color="#002aff" focused={focused} tintColor={{ tintColor }}/>
+        <Entypo name="home" size={30} color="#00a2ff" focused={focused} tintColor={{ tintColor }}/>
       ),
       tabBarOptions: {
         labelStyle: {
@@ -119,7 +119,7 @@ const TabNavigator = createBottomTabNavigator({
         style: {
           height: 70
         },
-        activeTintColor:'#002aff',
+        activeTintColor:'#00a2ff',
         activeBackgroundColor:'#ddd'
         
       }  
@@ -136,7 +136,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions:{  
       tabBarLabel:'My Profile',  
       tabBarIcon:({focused,tintColor})=>(  
-         <Entypo name="user" size={30} focused={focused} color="#002aff" />
+         <Entypo name="user" size={30} focused={focused} color="#00a2ff" />
       ),
       tabBarOptions: {
         labelStyle: {
@@ -148,7 +148,7 @@ const TabNavigator = createBottomTabNavigator({
         style: {
           height: 70
         },
-        activeTintColor:'#002aff',
+        activeTintColor:'#00a2ff',
         activeBackgroundColor:'#ddd'
       }  
     }  
@@ -158,7 +158,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions:{  
       tabBarLabel:'Settings',  
       tabBarIcon:({focused,tintColor})=>(  
-         <Entypo name="tools" focused={focused} size={30} color="#002aff" />
+         <Entypo name="tools" focused={focused} size={30} color="#00a2ff" />
         
       ),
       tabBarOptions: {
@@ -171,7 +171,7 @@ const TabNavigator = createBottomTabNavigator({
         style: {
           height: 70
         },
-        activeTintColor:'#002aff',
+        activeTintColor:'#00a2ff',
         activeBackgroundColor:'#ddd'
       } 
     },
