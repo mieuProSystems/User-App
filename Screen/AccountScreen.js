@@ -84,7 +84,7 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
                 </View>
 
                 <TouchableHighlight>
-            <View style={{borderRadius:30, backgroundColor:'#002aff', width:150,marginLeft:'auto',marginRight:'auto', padding:10, borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid'}}>
+            <View style={{borderRadius:30, backgroundColor:'#00a2ff', width:150,marginLeft:'auto',marginRight:'auto', padding:10, borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid'}}>
               <Text style={{fontSize:22, color:'#fff', marginLeft:'auto', marginRight:'auto'}}>Logout</Text>
             </View>
           </TouchableHighlight>
