@@ -11,6 +11,7 @@ import {
 
 class ChannelVideos extends Component {  
 
+    //Set Header Color, Title 
     static navigationOptions = ({ navigation }) => {  
       return ({ 
           title: navigation.getParam('channelName', 'Videos'),   
@@ -28,14 +29,14 @@ class ChannelVideos extends Component {
       }
     
       render() { 
+        //Get Channel Details from props
         const { navigation } = this.props; 
-        console.log(this.props);
         const channelName = navigation.getParam('channelName', null);
         const videoIds = navigation.getParam('videoIds', null);
         const videoTitles = navigation.getParam('videoTitles',null);
         const videoThumbnails = navigation.getParam('videoThumbnails', null); 
     
-    
+        //Creating Channel Contents
         var channelContentsDisplay =[];
     
         videoThumbnails.map((data, index)=>{

@@ -37,8 +37,7 @@ const AppNavigator = createStackNavigator(
       }
   },
   Login :{
-      screen:Login,
-      
+      screen:Login,  
   },
   RegisterEmail :{
     screen:RegisterEmail},
@@ -65,7 +64,7 @@ const AppNavigator = createStackNavigator(
       }
   },
   Home:{ screen:tabNavigationContainer
-  },
+    },
 
   ChannelVideos:{screen:ChannelVideos
     },
@@ -74,7 +73,6 @@ const AppNavigator = createStackNavigator(
       screen:PlayVideo
     }
   },
-
 
   {  
       initialRouteName: "Dashboard"  

@@ -7,14 +7,12 @@ import {
 } from 'react-native';
 
 import { styles } from '../stylesheets/registerFormStyles';
-
 import Spinner from 'react-native-loading-spinner-overlay';
 import IpAddress from '../Components/serverip';
 
-//import { Svg} from 'react-native-svg';
 
 
-export default class RegisterEmail extends Component {
+class RegisterEmail extends Component {
 
     constructor(props) {
         super(props);
@@ -24,6 +22,7 @@ export default class RegisterEmail extends Component {
         }
     }
 
+    // Validate Email for new user
     validateEmail = async() => {
         if( (this.state.email.length) === 0 ) {
             alert("Please Enter the E-mail")
@@ -74,8 +73,7 @@ export default class RegisterEmail extends Component {
               },  
         headerTitleStyle: {   
             fontSize:24,
-            color:'#000'
-          
+            color:'#000' 
         },  
     };
 
@@ -85,9 +83,7 @@ export default class RegisterEmail extends Component {
                 <View style={{width:'90%', marginTop:50}}>
                      <Spinner
                     visible={this.state.spinner}
-                    //textContent={'Loading...'}
-                    //textStyle={styles.spinnerTextStyle}
-                />
+                    />
                 <Text style={styles.header}> Enter your e-mail </Text>
                 <TextInput style={styles.inputBox}
                            onChangeText={(email) => this.setState({email})}
@@ -97,19 +93,16 @@ export default class RegisterEmail extends Component {
                            placeholderTextColor = "#000"
                            selectionColor="#000"
                            keyboardType={"email-address"}
-                           maxLength = {256}/>
-
-                           
-
+                           maxLength = {256}
+                            />
                 <TouchableHighlight style={styles.button}>
                     <Text style={styles.buttonText} onPress={this.validateEmail}> Next </Text>
                 </TouchableHighlight>
 
                 </View>
-
-
             </View>
         )
     }
 }
 
+export default RegisterEmail;

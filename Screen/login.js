@@ -13,15 +13,12 @@ import {
     ImageBackground, Button
 } from 'react-native';
 import { styles } from '../stylesheets/loginStyles';
-
 import { StackActions, NavigationActions } from 'react-navigation';
-
-
 import Spinner from "react-native-loading-spinner-overlay";
 import IpAddress from '../Components/serverip';
 
 
-export default class Login extends Component {
+class Login extends Component {
 
     constructor(props){
         super(props);
@@ -33,31 +30,7 @@ export default class Login extends Component {
         }
     }
 
-// componentWillMount(){
-//     this.requestLocationPermission()
-// }
-//      requestLocationPermission=()=> 
-// {
-//   try {
-//     const granted = await PermissionsAndroid.request(
-//       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-//       {
-//         'title': 'Example App',
-//         'message': 'Example App access to your location '
-//       }
-//     )
-//     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-//       console.log("You can use the location")
-//       alert("You can use the location");
-//     } else {
-//       console.log("location permission denied")
-//       alert("Location permission denied");
-//     }
-//   } catch (err) {
-//     console.warn(err)
-//   }
-// }
-
+    // Validate and Post the login credential to the server
     validateLogin =async()=>{
         console.log("clicked");
         if( (this.state.email.length === 0) || (this.state.password.length === 0) ){
@@ -104,10 +77,12 @@ export default class Login extends Component {
         }
     };
 
+    // Show Password Toggle Switch
     toggleSwitch = () => {
         this.setState({ showPassword: !this.state.showPassword });
     };
 
+    // Header Title, Color
     static navigationOptions = {  
         title: 'Login',  
         headerStyle: {  
@@ -115,8 +90,7 @@ export default class Login extends Component {
               },  
         headerTitleStyle: {   
             fontSize:24,
-            color:'#000'
-          
+            color:'#000'  
         },  
     };
 
@@ -128,8 +102,6 @@ export default class Login extends Component {
                     <View style={{marginTop:50, width:'90%', padding:10}}>
                     <Spinner
                         visible={this.state.spinner}
-                        //textContent={'Loading...'}
-                        //textStyle={styles.spinnerTextStyle}
                     />
                     <TextInput style={styles.inputBox}
                                onChangeText={(email) => this.setState({email})}
@@ -166,3 +138,5 @@ export default class Login extends Component {
         )
     }
 }
+
+export default Login;

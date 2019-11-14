@@ -16,16 +16,20 @@ export default class RegisterUsername extends Component {
     }
 
     validateUsername = async() => {
+
         if( (this.state.username.length) === 0 ) {
             alert("Please Enter the Username");
         }
         else {
             let LenCheckReg = new RegExp(/^.{3,25}$/);
             let SplCharCheckReg = new RegExp(/^[-_@#0-9a-zA-Z]*$/);
+            
             if ((LenCheckReg.test(this.state.username)) && (SplCharCheckReg.test(this.state.username)) === false) {
                 alert("Invalid Username... \n Valid Username Format : \nminimum 3 to 25 characters long; \nnumbers,alphabets and '@' symbol are allowed ");
-            } else {
-                this.setState({spinner: true})
+            }
+            else {
+                this.setState({spinner: true});
+
                 fetch(IpAddress+'/user/verify/uname', {
                     method: 'POST',
                     headers: {
@@ -35,13 +39,14 @@ export default class RegisterUsername extends Component {
                         "uname": this.state.username,
                     })
                 })
-                    .then((response) => (response.json()))
-                    .then((responsejson) => {
-                        //alert(JSON.stringify(responsejson));
+                .then((response) => (response.json()))
+                .then((responsejson) => {
                         this.setState({spinner: false});
+
                         if ((responsejson.status) === "failure") {
                             alert("Username already Exist");
-                        } else {
+                        }
+                        else {
                             this.props.navigation.navigate('RegisterPassword', {
                                 USERNAME: this.state.username,
                                 EMAIL: this.props.navigation.state.params.EMAIL
@@ -49,17 +54,15 @@ export default class RegisterUsername extends Component {
                         }
 
                     })
-                    .catch((error) => {
+                .catch((error) => {
                             this.setState({spinner: false});
                             alert(error);
                         }
                     )
+                }
             }
-        }
-    };
-
-
-    
+        };
+// Header Title, font color and size
     static navigationOptions = {  
         title: 'Sign Up',  
         headerStyle: {  
@@ -80,8 +83,6 @@ export default class RegisterUsername extends Component {
                 <Text style={styles.header}> Enter Your User Name </Text>
                 <Spinner
                     visible={this.state.spinner}
-                    //textContent={'Loading...'}
-                    //textStyle={styles.spinnerTextStyle}
                 />
                 <TextInput style={styles.inputBox}
                            onChangeText={(username) => this.setState({username})}

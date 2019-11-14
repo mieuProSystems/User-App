@@ -1,6 +1,5 @@
 
 import YouTubePlayer from "react-native-youtube-sdk";
-
 import React, {Component} from 'react';
 
 import {
@@ -11,6 +10,8 @@ import {
 
 
 class PlayVideo extends Component {
+
+    // Header Tilte, color, font Size
     static navigationOptions = ({ navigation }) => {  
       return ({ 
           title: navigation.getParam('channelName', 'Videos'),   
@@ -28,8 +29,8 @@ class PlayVideo extends Component {
     render() { 
       const { navigation } = this.props;
   
-      const videoId= navigation.getParam("videoId",'null');
-      const videoTitle= navigation.getParam("videoTitle",'null');
+      const videoId= navigation.getParam("videoId",null);
+      const videoTitle= navigation.getParam("videoTitle",null);
       
       return ( <View >
                 <View style={{elevation:5, backgroundColor:'white', margin:10}}>

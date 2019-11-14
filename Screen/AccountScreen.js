@@ -14,16 +14,17 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
       constructor(props) {
           super(props);
           this.state = {token:false,
-             data:false }
+                        data:false 
+                      }
       }
 
       componentDidMount() {
-          //console.log(this.props.navigation.state.params.token);
+        //console.log(this.props.navigation.state.params.token);
         //this.setState({token:this.props.navigation.state.params.token});
-
         //console.log(this.state.token);
 
-        
+
+        //Fetching Account Information By using Login Token
         fetch(IPADDRESS+"/user/accountInformation",{
             method:'POST',
             headers: {
@@ -31,36 +32,32 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
             },
             body:JSON.stringify({token:this.props.navigation.state.params.token})
         })
-    .then((response) => (response.json()))
-    .then(async(resultData)=>{
-      
-      await this.setState({data:resultData}) ;
-      console.log(this.state.data);
-      
-    })
-    .catch((error)=>{
-        console.log(error);
-    })
+        .then((response) => (response.json()))
+        .then(async(resultData)=>{
+            await this.setState({data:resultData}) ;
+            //console.log(this.state.data);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
 
-    
-      }
 
-      //style={{borderColor:'red', borderWidth:5, borderStyle:'solid' }}
+      
       render() { 
-          return ( <View style={{  }}>
+          return ( 
+          <View>
           
           <View style={{flexDirection:'row', justifyContent:'space-evenly', flexWrap:'wrap'}}>
               <View>
-          <Image source={require('../Components/accountInformationIcon.jpg')} style={{tintColor:'#00a2ff',justifyContent:'flex-start',resizeMode:'contain',width:150, height:150}} />
+                <Image source={require('../Components/accountInformationIcon.jpg')} style={{tintColor:'#00a2ff',justifyContent:'flex-start',resizeMode:'contain',width:150, height:150}} />
+              </View>
+              {(this.state.data === false)?(<Text>Loading...!</Text>):(<View >
+                  <Text style={{fontSize:40, marginTop:'auto', marginBottom:'auto',}}>{this.state.data.username}</Text>
+                  </View>
+              )}
           </View>
-          
-          {(this.state.data === false)?(<Text>Loading...!</Text>):(<View >
-          
-          <Text style={{fontSize:40, marginTop:'auto', marginBottom:'auto',}}>{this.state.data.username}</Text>
-          </View>
-          )}
-          </View>
-
+          {/* Displaying Profile Information */}
           <View>
           {(this.state.data === false)?null:(<View style={{padding:10}}>
                     <View style={{borderRadius:30, flexDirection:'row', backgroundColor:'#ccc', marginTop:10, marginBottom:10, padding:10, borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid'}} >
@@ -84,17 +81,14 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
                 </View>
 
                 <TouchableHighlight>
-            <View style={{borderRadius:30, backgroundColor:'#00a2ff', width:150,marginLeft:'auto',marginRight:'auto', padding:10, borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid'}}>
-              <Text style={{fontSize:22, color:'#fff', marginLeft:'auto', marginRight:'auto'}}>Logout</Text>
-            </View>
-          </TouchableHighlight>
+                  <View style={{borderRadius:30, backgroundColor:'#00a2ff', width:150,marginLeft:'auto',marginRight:'auto', padding:10, borderColor:'#00a2ff', borderWidth:1, borderStyle:'solid'}}>
+                    <Text style={{fontSize:22, color:'#fff', marginLeft:'auto', marginRight:'auto'}}>Logout</Text>
+                  </View>
+                </TouchableHighlight>
 
-              </View>)}
+            </View>)}
           </View>
-
-
-        
-        </View>  );
+       </View>  );
       }
   }
    
